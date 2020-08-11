@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'pawsnepal_app',
+    'django_summernote',
 ]
 
 MIDDLEWARE = [
@@ -129,3 +130,4 @@ STATIC_ROOT = os.path.join(BASE_DIR,'static_cdn')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
+X_FRAME_OPTIONS = 'SAMEORIGIN'
