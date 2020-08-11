@@ -131,3 +131,4 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
+

@@ -51,14 +51,14 @@
       <div class="site-mobile-menu-body"></div>
     </div>
 
-<!-- navbar begins here-->
+    <!-- navbar begins here-->
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="." class="h2 mb-0">Dogger<span class="text-primary">.</span>
+            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Dogger<span class="text-primary">.</span>
               </a></h1>
           </div>
 
@@ -68,23 +68,26 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="#site-section" class="nav-link">Shop</a>
+                  <a href="#" class="nav-link">Shop</a>
                   <ul class="dropdown">
                     <li><a href="#" class="nav-link">Pet</a></li>
                     <li><a href="#" class="nav-link">Pet Items</a></li>
                   </ul>
                 </li>
-                <li><a href="#dogopedia" class="navlink">Dogopedia</a></li>
-                <li> <a href="#services-section" class="nav-link" > Services</a></li>
+                <li><a href="#dogopedia" class="nav-link">Dogopedia</a></li>
+                <li> <a href="#services-section" class="nav-link"> Services</a></li>
                 <li class="has-children">
-                  <a href="#faq-section" class="nav-link">Category</a>
+                  <a class="nav-link">Category</a>
                   <ul class="dropdown">
-                    <li><a href="#faq-section" class="nav-link">FAQ</a></li>
+
+
+                    <li><a href="#faq-section" class="nav-link">FAQ</a></>
                     <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                     <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
 
 
-                   <!-- <li class="has-children">
+
+                    <!-- <li class="has-children">
                       <a href="#">More Links</a>
                       <ul class="dropdown">
                         <li><a href="#">Menu One</a></li>
@@ -94,9 +97,16 @@
                     </li>-->
                   </ul>
                 </li>
-               <li><a href="#contact-section" class="nav-link">Contact</a></li>
-               <li><a href="#about-section" class="nav-link">About Us</a></li>
-               <li></li>
+
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                <li><a href="#about-section" class="nav-link">About Us</a></li>
+                <li>
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search">
+                    <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Search </button>
+                  </form>
+                </li>
+
               </ul>
             </nav>
           </div>
@@ -111,7 +121,7 @@
     </header>
     <!-- navbar ends here-->
 
-      <!--home begins here-->
+    <!--home begins here-->
     <section class="site-blocks-cover overflow-hidden bg-light">
       <div class="container">
         <div class="row">
@@ -128,7 +138,7 @@
       </div>
     </section>
 
-    <section class="site-section" id="site-section">
+    <section class="site-section">
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center heading-section mb-5">
@@ -213,101 +223,102 @@
         </div>
         <div class="row">
 
+
+
           {% for obj in blogs %}
-          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="">
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
             <div class="d-lg-flex blog-entry">
               <figure class="mr-4">
-                <a href="{% url 'pawsnepal_app:blog-detail' obj.id  %}"><img src="{{ obj.image.url }}" alt="Image"
+                <a href="{% url 'pawsnepal_app:blog-detail' obj.id %}"><img src="{{ obj.image.url }}" alt="Image"
                     class="img-fluid"></a>
               </figure>
               <div class="blog-entry-text">
-                <h3><a href="{% url 'pawsnepal_app:blog-detail' obj.id  %}">{{ obj.title }}</a></h3>
-                <span class="post-meta mb-3 d-block">{{ obj.added_date }}</span>
+                <h3><a href="{% url 'pawsnepal_app:blog-detail' obj.id %}">{{obj.title}}</a></h3>
+                <span class="post-meta mb-3 d-block">{{obj.added_date}}</span>
                 <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
                   the blind texts.</p>
-                <p><a href="{% url 'pawsnepal_app:blog-detail' obj.id  %}" class="">Read More..</a></p>
+                <p><a href="{% url 'pawsnepal_app:blog-detail' obj.id %}" class="">Read More..</a></p>
               </div>
             </div>
           </div>
-
           {% endfor %}
 
         </div>
       </div>
     </section>
-<!--dogopedia ends here-->
-<!-- services begins here-->
-<section class="site-section bg-primary trainers" id="services-section">
-  <div class="container">
-    <div class="row justify-content-center" data-aos="fade-up">
-      <div class="col-lg-7 text-center heading-section mb-5">
-        <div class="paws white">
-          <span class="icon-paw"></span>
-        </div>
-        <h2 class="mb-2 heading">Our Services</h2>
-        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-          blind texts.</p>
-      </div>
-    </div>
-    <div class="row">
-
-      <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
-        <div class="trainer">
-          <figure>
-            <img src="{% static 'images/dogger_trainer_1.jpg' %}" alt="Image" class="img-fluid">
-          </figure>
-          <div class="px-md-3">
-            <h3>Jessica White</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-              the blind texts.</p>
-            <ul class="ul-social-circle">
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-instagram"></span></a></li>
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-            </ul>
+    <!--dogopedia ends here-->
+    <!-- services begins here-->
+    <section class="site-section bg-primary trainers" id="services-section">
+      <div class="container">
+        <div class="row justify-content-center" data-aos="fade-up">
+          <div class="col-lg-7 text-center heading-section mb-5">
+            <div class="paws white">
+              <span class="icon-paw"></span>
+            </div>
+            <h2 class="mb-2 heading">Our Services</h2>
+            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
+              blind texts.</p>
           </div>
         </div>
-      </div>
-      <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-        <div class="trainer">
-          <figure>
-            <img src="{% static 'images/dogger_trainer_2.jpg' %}" alt="Image" class="img-fluid">
-          </figure>
-          <div class="px-md-3">
-            <h3>Valerie Elash</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-              the blind texts.</p>
-            <ul class="ul-social-circle">
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-instagram"></span></a></li>
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-            </ul>
+        <div class="row">
+
+          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
+            <div class="trainer">
+              <figure>
+                <img src="{% static 'images/dogger_trainer_1.jpg' %}" alt="Image" class="img-fluid">
+              </figure>
+              <div class="px-md-3">
+                <h3>Jessica White</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                  the blind texts.</p>
+                <ul class="ul-social-circle">
+                  <li><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li><a href="#"><span class="icon-instagram"></span></a></li>
+                  <li><a href="#"><span class="icon-facebook"></span></a></li>
+                </ul>
+              </div>
+            </div>
           </div>
+          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="trainer">
+              <figure>
+                <img src="{% static 'images/dogger_trainer_2.jpg' %}" alt="Image" class="img-fluid">
+              </figure>
+              <div class="px-md-3">
+                <h3>Valerie Elash</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                  the blind texts.</p>
+                <ul class="ul-social-circle">
+                  <li><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li><a href="#"><span class="icon-instagram"></span></a></li>
+                  <li><a href="#"><span class="icon-facebook"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="trainer">
+              <figure>
+                <img src="{% static 'images/dogger_trainer_3.jpg' %}" alt="Image" class="img-fluid">
+              </figure>
+              <div class="px-md-3">
+                <h3>Alicia Jones</h3>
+                <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
+                  the blind texts.</p>
+                <ul class="ul-social-circle">
+                  <li><a href="#"><span class="icon-twitter"></span></a></li>
+                  <li><a href="#"><span class="icon-instagram"></span></a></li>
+                  <li><a href="#"><span class="icon-facebook"></span></a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
-
-      <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-        <div class="trainer">
-          <figure>
-            <img src="{% static 'images/dogger_trainer_3.jpg' %}" alt="Image" class="img-fluid">
-          </figure>
-          <div class="px-md-3">
-            <h3>Alicia Jones</h3>
-            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live
-              the blind texts.</p>
-            <ul class="ul-social-circle">
-              <li><a href="#"><span class="icon-twitter"></span></a></li>
-              <li><a href="#"><span class="icon-instagram"></span></a></li>
-              <li><a href="#"><span class="icon-facebook"></span></a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<!-- services ends here-->
+    </section>
+    <!-- services ends here-->
 
     <section class="site-section" id="about-section">
       <div class="container">
@@ -582,8 +593,11 @@
                   <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
                 </figure>
                 <h3 class="font-size-20 mb-4 text-black">Robert Steward</h3>
+
+
               </div>
             </div>
+
 
           </div>
         </div>
@@ -656,7 +670,9 @@
 
 
 
-    <section class="site-section " id="services-section1">
+
+
+    <section class="site-section " id="services-section">
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center heading-section mb-5">
@@ -824,7 +840,7 @@
               <div class="col-md-3 ml-auto">
                 <h2 class="footer-heading mb-4">Quick Links</h2>
                 <ul class="list-unstyled">
-                  <li><a href="#about-section'" class="smoothscroll">About Us</a></li>
+                  <li><a href="#about-section" class="smoothscroll">About Us</a></li>
                   <li><a href="#trainers-section" class="smoothscroll">Trainers</a></li>
                   <li><a href="#services-section" class="smoothscroll">Services</a></li>
                   <li><a href="#testimonials-section" class="smoothscroll">Testimonials</a></li>
@@ -887,6 +903,7 @@
 
 
   <script src="{% static 'js/main.js' %}"></script>
+
 
 </body>
 

@@ -68,6 +68,7 @@ class Blog(models.Model):
 
     class Meta:
         verbose_name_plural = "Blogs Posts"
+        ordering = ['-added_date']
 
 
 class ContactUs(models.Model):
