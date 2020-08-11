@@ -14,6 +14,17 @@ BLOG_CATEGORIES = (
     (4,'Events')
 )
 
+FEATURED_PRODUCTS = (
+    (1,'Crown'),
+    (2,'Diamond'),
+    (3,'Platinum'),
+    (4,'Gold'),
+    (5,'Silver'),
+    (6,'Bronze')
+)
+
+
+
 
 class Category(models.Model):
     items = models.CharField(max_length=100)
@@ -29,6 +40,7 @@ class Pets(models.Model):
     added_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField(null=True, blank=True)
+    featured = models.IntegerField(choices=FEATURED_PRODUCTS, null = True, blank=True, unique=True)
 
     def __str__(self):
         return self.name
@@ -55,6 +67,7 @@ class PetItems(models.Model):
 
 class Blog(models.Model):
     title = models.CharField(max_length=100)
+    introduction = models.CharField(max_length=150, null=True)  # Mandatory
     post = models.TextField()
     added_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -85,3 +98,10 @@ class ContactUs(models.Model):
 
     class Meta:
         verbose_name_plural = "Blogs Posts"
+
+
+class Gallery(models.Model):
+    image = models.ImageField()    # Mandatory
+    caption = models.CharField(max_length=150, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)

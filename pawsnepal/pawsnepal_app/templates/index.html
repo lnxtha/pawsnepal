@@ -125,7 +125,7 @@
             </div>
           </div>
           <div class="col-md-5 align-self-end text-center text-md-right">
-            <img src="{% static 'images/dogger_img_1.png' %}" alt="Image" class="img-fluid cover-img">
+              <img src="{% static 'images/dogger_img_1.png' %}" alt="Image" class="img-fluid">
           </div>
         </div>
       </div>
@@ -149,7 +149,7 @@
             <div class="row">
               <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
                 <a href="#" class="hover-1">
-                  <img src="{% static 'images/dogger_img_sm_3.jpg' %}" alt="Image" class="img-fluid">
+                  <img src="{{ featured_products.0.image.url }}" alt="Image" class="img-fluid">
                 </a>
               </div>
               <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
@@ -167,7 +167,11 @@
             <div class="row">
               <div class="mb-4 mb-lg-0 col-lg-6" data-aos="fade-left">
                 <a href="#" class="hover-1">
-                  <img src="{% static 'images/dogger_img_sm_1.jpg' %}" alt="Image" class="img-fluid">
+                   {% if featured_products.1.image.url %}
+                  <img src="{{ featured_products.1.image.url }}" alt="Image" class="img-fluid">
+                  {% else %}
+                  <img src="" alt="Image" class="img-fluid">
+                  {% endif %}
                 </a>
               </div>
               <div class="col-lg-5 ml-auto align-self-center" data-aos="fade-right">
@@ -185,7 +189,11 @@
             <div class="row">
               <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
                 <a href="#" class="hover-1">
-                  <img src="{% static 'images/dogger_img_sm_2.jpg' %}" alt="Image" class="img-fluid">
+                  {% if featured_products.2.image.url %}
+                  <img src="{{ featured_products.2.image.url }}" alt="Image" class="img-fluid">
+                  {% else %}
+                  <img src="" alt="Image" class="img-fluid">
+                  {% endif %}
                 </a>
               </div>
               <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
@@ -217,7 +225,11 @@
 
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
             <div class="block_service">
-              <img src="{% static 'images/dogger_checkup.svg' %}" alt="Image mb-5">
+              {% if featured_products.1.image.url %}
+              <img src="{{ featured_products.2.image.url }}" alt="Image mb-5">
+              {% else %}
+              <img src="" alt="Image mb-5">
+              {% endif %}
               <h3>Dog Checkup</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>

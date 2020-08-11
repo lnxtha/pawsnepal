@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views import View
 from django.views.generic import DetailView
-from .models import Blog
+from .models import Blog, Pets
 from .models import ITEM_CATEGORIES, BLOG_CATEGORIES
 from django.db.models import Q
 
@@ -16,7 +16,8 @@ blog_categories = dict(BLOG_CATEGORIES)
 class HomeView(View):
     def get(self, request, *args, **kwargs):
         template_name = 'index.html'
-        context = {'blogs': Blog.objects.all()[:4],  'blog_categories':blog_categories }
+        context = {'blogs': Blog.objects.all()[:4],  'blog_categories':blog_categories, 'featured_products': Pets.objects.filter(Q(featured__in = [1,2,3])).order_by('featured') }
+        print(context['featured_products'])
         return render(request, template_name, context)
 
 
@@ -41,14 +42,13 @@ class BlogDetailView(DetailView):
         related_blog_posts = []
         for i in tags:
             [related_blog_posts.append(i.title) for i in Blog.objects.filter(tags__contains=i)]
-
         post_dictionary = {}
         for i in related_blog_posts:
             post_dictionary[i] = related_blog_posts.count(i)
 
-        related_blog_posts = sorted(post_dictionary.keys(), key=lambda kv: kv[1], reverse=True)[:3]
+        related_blog_posts = sorted(post_dictionary.keys(), key=lambda kv: kv[1], reverse=True)
 
-        context['related_posts'] = Blog.objects.filter(Q(title__in = related_blog_posts) & ~Q(id= self.kwargs['pk']))
+        context['related_posts'] = Blog.objects.filter(Q(title__in = related_blog_posts) & ~Q(id= self.kwargs['pk']))[:3]
         return context
         # FOR RELATED POSTS START ########
 

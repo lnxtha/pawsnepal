@@ -56,40 +56,36 @@
     <!-- navbar begins here-->
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
-      <div class="container">
+      <div class="container-fluid">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="h2 mb-0">Dogger<span class="text-primary">.</span>
-              </a>
-            </h1>
+            <h1 class="mb-0 site-logo"><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="h2 mb-0">PawsNepal<span class="text-primary">.</span>
+              </a></h1>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="nav-link">Home</a></li>
+                <li><a href="#home-section" class="nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="#" class="nav-link">Shop</a>
+                  <a href="#shop-section" class="nav-link">Shop</a>
                   <ul class="dropdown">
                     <li><a href="#" class="nav-link">Pet</a></li>
                     <li><a href="#" class="nav-link">Pet Items</a></li>
                   </ul>
                 </li>
-                <li><a href="#" class="smoothscroll">About Us</a></li>
-                <li> <a href="#services-section" class="nav-link" > Services</a></li>
+                <li><a href="#dogopedia" class="nav-link">Dogopedia</a></li>
+                <li> <a href="#services-section" class="nav-link"> Services</a></li>
                 <li class="has-children">
-                  <a href="#about-section" class="nav-link">Category</a>
+                  <a class="nav-link">Category</a>
                   <ul class="dropdown">
-
-
-
-
-                    <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-                    <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                     <li><a href="#faq-section" class="nav-link">FAQ</a></>
-                   <!-- <li class="has-children">
+                    <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
+                    <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
+
+                    <!-- <li class="has-children">
                       <a href="#">More Links</a>
                       <ul class="dropdown">
                         <li><a href="#">Menu One</a></li>
@@ -99,17 +95,21 @@
                     </li>-->
                   </ul>
                 </li>
-               <li><a href="#contact-section" class="nav-link">Contact</a></li>
-               <li><a href="#about-section" class="nav-link">About Us</a></li>
-               <li></li>
+
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                <li><a href="#about-section" class="nav-link">About Us</a></li>
+                <li class="nav-link">
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search">
+                    <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Search </button>
+                  </form>
+                </li>
               </ul>
             </nav>
           </div>
 
-
           <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#"
               class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
-
         </div>
       </div>
 
@@ -117,20 +117,24 @@
     <!-- navbar ends here-->
 
 
-    <div class="site-blocks-cover bg-light" data-aos="fade">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-12 mt-lg-5 text-center">
-<!--            <h1>5 Things You Need To Know About Dog Massage</h1>-->
-            <h1>{{ object.title }}</h1>
-            <p class="post-meta">{{ object.added_date }} &bull; {% if object.created_by %}Posted by {{ object.created_by }} {% endif %}</p>
-<!--            <p class="post-meta">April 17, 2019 &bull; Posted by <a href="#">Admin</a> in <a href="#">Events</a></p>-->
-          </div>
+    <div class="site-blocks-cover" data-aos="fade">
+      <div class="container" style="padding:5%">
+        <div class="row align-items-center justify-content-center"
+             style="background-image:  url({{ object.image.url }}); background-repeat: no-repeat, repeat;
+             opacity: 35%;">
+
         </div>
       </div>
     </div>
 
 
+      <div class="col-md-12 mt-lg-5 text-center">
+      <!--            <h1>5 Things You Need To Know About Dog Massage</h1>-->
+      <blockquote class="blockquote text-center">
+      <p class="mb-0 lead" style="font-size:60px;">{{object.title}}</p>
+      <footer class="blockquote-footer">{{ object.added_date }} &bull; {% if object.created_by %}Posted by {{ object.created_by }} {% endif %}</footer>
+      </blockquote>
+      </div>
 
     <section class="site-section">
       <div class="container">
@@ -198,6 +202,8 @@
                       <div class="vcard bio">
                         <img src="images/person_1.jpg" alt="Image placeholder">
                       </div>
+
+
                             <ul class="children">
                               <li class="comment">
                                 <div class="vcard bio">
@@ -283,8 +289,9 @@
             <div class="sidebar-box">
               <img src="{{ obj.image.url }}" alt="Image placeholder" class="img-fluid mb-4">
               <a href="{% url 'pawsnepal_app:blog-detail' obj.id %}"><h2 class="text-left">{{ obj.title }}</h2></a>
+              <p class="p-1">{{ obj.introduction|truncatechars:100 }}</p>
+              <p class="p-1"> <a href="{% url 'pawsnepal_app:blog-detail' obj.id %}" class="btn btn-primary btn-sm mt-1 mb-1">Read More</a></p>
               <span class="bg-primary m-1"><p>Tags:{{obj.tags}}</p></span>
-              <p><a href="{% url 'pawsnepal_app:blog-detail' obj.id %}" class="btn btn-primary btn-sm m-1">Read More</a></p>
             </div>
             {% endfor %}
             </div>
