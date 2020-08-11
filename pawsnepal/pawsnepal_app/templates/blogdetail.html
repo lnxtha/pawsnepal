@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
 
@@ -28,10 +28,10 @@
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+
 
   <div id="overlayer"></div>
   <div class="loader">
@@ -51,8 +51,8 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
-    
+
+
     <!-- navbar begins here-->
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
@@ -116,7 +116,7 @@
     </header>
     <!-- navbar ends here-->
 
-  
+
     <div class="site-blocks-cover bg-light" data-aos="fade">
       <div class="container">
         <div class="row align-items-center justify-content-center">
@@ -128,10 +128,10 @@
           </div>
         </div>
       </div>
-    </div>  
+    </div>
 
-    
-    
+
+
     <section class="site-section">
       <div class="container">
         <div class="row">
@@ -198,26 +198,6 @@
                       <div class="vcard bio">
                         <img src="images/person_1.jpg" alt="Image placeholder">
                       </div>
-                      <div class="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                      </div>
-
-
-                      <ul class="children">
-                        <li class="comment">
-                          <div class="vcard bio">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
-                          </div>
-                          <div class="comment-body">
-                            <h3>Jean Doe</h3>
-                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                          </div>
-
                             <ul class="children">
                               <li class="comment">
                                 <div class="vcard bio">
@@ -237,20 +217,10 @@
                   </ul>
                 </li>
 
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Jean Doe</h3>
-                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
+
               </ul>
               <!-- END comment-list -->
-              
+
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">Leave a comment</h3>
                 <form action="#" class="">
@@ -299,7 +269,7 @@
 <!--              </div>-->
 
               <div class="categories">
-                <h3>Categories</h3>
+                <h2 class="text-center">Categories</h2>
 
                 {% for obj in blog_categories %}
                   <li><a href="#">{{ obj }} <span>({% get_blog_count obj %})</span></a></li>
@@ -307,23 +277,29 @@
               </div>
 
             </div>
+            <div>
+              <h2 class="text-center">Related Posts</h2>
+            {% for obj in related_posts %}
             <div class="sidebar-box">
-              <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-              <h3>About The Author</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-              <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+              <img src="{{ obj.image.url }}" alt="Image placeholder" class="img-fluid mb-4">
+              <a href="{% url 'pawsnepal_app:blog-detail' obj.id %}"><h2 class="text-left">{{ obj.title }}</h2></a>
+              <span class="bg-primary m-1"><p>Tags:{{obj.tags}}</p></span>
+              <p><a href="{% url 'pawsnepal_app:blog-detail' obj.id %}" class="btn btn-primary btn-sm m-1">Read More</a></p>
+            </div>
+            {% endfor %}
             </div>
 
-            <div class="sidebar-box">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            </div>
-          </div>
+<!--            <div class="sidebar-box">-->
+<!--              <h3>Paragraph</h3>-->
+<!--              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>-->
+<!--            </div>-->
+<!--          </div>-->
         </div>
       </div>
+      </div>
     </section>
-    
-    
+
+
     <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -371,10 +347,10 @@
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
-        
+
             </div>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -392,9 +368,9 @@
   <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'js/jquery.sticky.js' %}"></script>
   <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-  
+
   <script src="{% static 'js/main.js' %}"></script>
 
-  
+
   </body>
 </html>
