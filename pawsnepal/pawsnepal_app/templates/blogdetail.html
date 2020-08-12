@@ -8,8 +8,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    
-    
+
+
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700, 900|Vollkorn:400i" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'fonts/icomoon/style.css' %}">
 
@@ -28,10 +28,10 @@
     <link rel="stylesheet" href="{% static 'css/aos.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+
   </head>
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-  
+
 
   <div id="overlayer"></div>
   <div class="loader">
@@ -51,18 +51,17 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-   
-    
+
+
     <!-- navbar begins here-->
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
-      <div class="container">
+      <div class="container-fluid">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="h2 mb-0">Dogger<span class="text-primary">.</span>
-              </a>
-            </h1>
+            <h1 class="mb-0 site-logo"><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="h2 mb-0">PawsNepal<span class="text-primary">.</span>
+              </a></h1>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -71,25 +70,22 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="#" class="nav-link">Shop</a>
+                  <a href="#shop-section" class="nav-link">Shop</a>
                   <ul class="dropdown">
                     <li><a href="#" class="nav-link">Pet</a></li>
                     <li><a href="#" class="nav-link">Pet Items</a></li>
                   </ul>
                 </li>
-                <li><a href="#" class="smoothscroll">About Us</a></li>
-                <li> <a href="#services-section" class="nav-link" > Services</a></li>
+                <li><a href="#dogopedia" class="nav-link">Dogopedia</a></li>
+                <li> <a href="#services-section" class="nav-link"> Services</a></li>
                 <li class="has-children">
-                  <a href="#about-section" class="nav-link">Category</a>
+                  <a class="nav-link">Category</a>
                   <ul class="dropdown">
-
-
-
-
-                    <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-                    <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                     <li><a href="#faq-section" class="nav-link">FAQ</a></>
-                   <!-- <li class="has-children">
+                    <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
+                    <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
+
+                    <!-- <li class="has-children">
                       <a href="#">More Links</a>
                       <ul class="dropdown">
                         <li><a href="#">Menu One</a></li>
@@ -99,39 +95,47 @@
                     </li>-->
                   </ul>
                 </li>
-               <li><a href="#contact-section" class="nav-link">Contact</a></li>
-               <li><a href="#about-section" class="nav-link">About Us</a></li>
-               <li></li>
+
+                <li><a href="#contact-section" class="nav-link">Contact</a></li>
+                <li><a href="#about-section" class="nav-link">About Us</a></li>
+                <li class="nav-link">
+                  <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search">
+                    <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Search </button>
+                  </form>
+                </li>
               </ul>
             </nav>
           </div>
 
-
           <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#"
               class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
-
         </div>
       </div>
 
     </header>
     <!-- navbar ends here-->
 
-  
-    <div class="site-blocks-cover bg-light" data-aos="fade">
-      <div class="container">
-        <div class="row align-items-center justify-content-center">
-          <div class="col-md-12 mt-lg-5 text-center">
-<!--            <h1>5 Things You Need To Know About Dog Massage</h1>-->
-            <h1>{{ object.title }}</h1>
-            <p class="post-meta">{{ object.added_date }} &bull; {% if object.created_by %}Posted by {{ object.created_by }} {% endif %}</p>
-<!--            <p class="post-meta">April 17, 2019 &bull; Posted by <a href="#">Admin</a> in <a href="#">Events</a></p>-->
-          </div>
+
+    <div class="site-blocks-cover" data-aos="fade">
+      <div class="container" style="padding:5%">
+        <div class="row align-items-center justify-content-center"
+             style="background-image:  url({{ object.image.url }}); background-repeat: no-repeat, repeat;
+             opacity: 35%;">
+
         </div>
       </div>
-    </div>  
+    </div>
 
-    
-    
+
+      <div class="col-md-12 mt-lg-5 text-center">
+      <!--            <h1>5 Things You Need To Know About Dog Massage</h1>-->
+      <blockquote class="blockquote text-center">
+      <p class="mb-0 lead" style="font-size:60px;">{{object.title}}</p>
+      <footer class="blockquote-footer">{{ object.added_date }} &bull; {% if object.created_by %}Posted by {{ object.created_by }} {% endif %}</footer>
+      </blockquote>
+      </div>
+
     <section class="site-section">
       <div class="container">
         <div class="row">
@@ -161,9 +165,12 @@
 <!--            <p>Consectetur porro odio quod iure quaerat cupiditate similique, dolor reprehenderit molestias provident, esse dolorum omnis architecto magni amet corrupti neque ratione sunt beatae perspiciatis? Iste pariatur omnis sed ut itaque.</p>-->
 <!--            <p>Id similique, rem ipsam accusantium iusto dolores sit velit ex quas ea atque, molestiae. Sint, sed. Quisquam, suscipit! Quisquam quibusdam maiores fugiat eligendi eius consequuntur, molestiae saepe commodi expedita nemo!</p>-->
             <div class="pt-5">
-<!--              <p>Categories:  <a href="#">Design</a>, <a href="#">Events</a>  Tags: <a href="#">#html</a>, <a href="#">#trends</a></p>-->
               <p>Categories:
+
+                <!--To get Category Name from Category ID-->
+
                 <a href="#">{% get_blog_category object.category %}</a>  Tags: <a href="#">{{ object.tags }}</a></p>
+
             </div>
 
 
@@ -198,25 +205,7 @@
                       <div class="vcard bio">
                         <img src="images/person_1.jpg" alt="Image placeholder">
                       </div>
-                      <div class="comment-body">
-                        <h3>Jean Doe</h3>
-                        <div class="meta">January 9, 2018 at 2:21pm</div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                        <p><a href="#" class="reply">Reply</a></p>
-                      </div>
 
-
-                      <ul class="children">
-                        <li class="comment">
-                          <div class="vcard bio">
-                            <img src="images/person_1.jpg" alt="Image placeholder">
-                          </div>
-                          <div class="comment-body">
-                            <h3>Jean Doe</h3>
-                            <div class="meta">January 9, 2018 at 2:21pm</div>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                            <p><a href="#" class="reply">Reply</a></p>
-                          </div>
 
                             <ul class="children">
                               <li class="comment">
@@ -237,20 +226,10 @@
                   </ul>
                 </li>
 
-                <li class="comment">
-                  <div class="vcard bio">
-                    <img src="images/person_1.jpg" alt="Image placeholder">
-                  </div>
-                  <div class="comment-body">
-                    <h3>Jean Doe</h3>
-                    <div class="meta">January 9, 2018 at 2:21pm</div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur quidem laborum necessitatibus, ipsam impedit vitae autem, eum officia, fugiat saepe enim sapiente iste iure! Quam voluptas earum impedit necessitatibus, nihil?</p>
-                    <p><a href="#" class="reply">Reply</a></p>
-                  </div>
-                </li>
+
               </ul>
               <!-- END comment-list -->
-              
+
               <div class="comment-form-wrap pt-5">
                 <h3 class="mb-5">Leave a comment</h3>
                 <form action="#" class="">
@@ -282,10 +261,11 @@
           </div>
           <div class="col-md-4 sidebar">
             <div class="sidebar-box">
-              <form action="#" class="search-form">
+              <form action="{% url 'pawsnepal_app:blog-list' %}" class="search-form" method="get" target="_parent">
                 <div class="form-group">
                   <span class="icon fa fa-search"></span>
-                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter">
+                  <input type="text" class="form-control" placeholder="Type a keyword and hit enter" id="keyword"
+                          name="keyword">
                 </div>
               </form>
             </div>
@@ -299,31 +279,33 @@
 <!--              </div>-->
 
               <div class="categories">
-                <h3>Categories</h3>
+                <h2 class="text-center">Categories</h2>
 
                 {% for obj in blog_categories %}
-                  <li><a href="#">{{ obj }} <span>({% get_blog_count obj %})</span></a></li>
+                  <li><a href="{% url 'pawsnepal_app:blog-list' %}?category={{obj}}">{{ obj }} <span>({% get_blog_count obj %})</span></a></li>
                 {% endfor %}
               </div>
 
             </div>
+            <div>
+              <h2 class="text-center">Related Posts</h2>
+            {% for obj in related_posts %}
             <div class="sidebar-box">
-              <img src="images/person_1.jpg" alt="Image placeholder" class="img-fluid mb-4">
-              <h3>About The Author</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-              <p><a href="#" class="btn btn-primary btn-sm">Read More</a></p>
+              <img src="{{ obj.image.url }}" alt="Image placeholder" class="img-fluid mb-4">
+              <a href="{% url 'pawsnepal_app:blog-detail' obj.id %}"><h2 class="text-left">{{ obj.title }}</h2></a>
+              <p class="p-1">{{ obj.introduction|truncatechars:150 }}</p>
+              <p class="p-1"> <a href="{% url 'pawsnepal_app:blog-detail' obj.id %}" class="btn btn-primary btn-sm mt-1 mb-1">Read More</a></p>
+              <span class="bg-primary m-1"><p>Tags:{{obj.tags}}</p></span>
+            </div>
+            {% endfor %}
             </div>
 
-            <div class="sidebar-box">
-              <h3>Paragraph</h3>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus itaque, autem necessitatibus voluptate quod mollitia delectus aut, sunt placeat nam vero culpa sapiente consectetur similique, inventore eos fugit cupiditate numquam!</p>
-            </div>
-          </div>
         </div>
       </div>
+      </div>
     </section>
-    
-    
+
+
     <footer class="site-footer">
       <div class="container">
         <div class="row">
@@ -371,10 +353,10 @@
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
             <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
-        
+
             </div>
           </div>
-          
+
         </div>
       </div>
     </footer>
@@ -392,9 +374,9 @@
   <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'js/jquery.sticky.js' %}"></script>
   <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-  
+
   <script src="{% static 'js/main.js' %}"></script>
 
-  
+
   </body>
 </html>
