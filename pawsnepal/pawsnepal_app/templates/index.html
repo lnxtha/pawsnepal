@@ -54,11 +54,11 @@
     <!-- navbar begins here-->
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
-      <div class="container">
+      <div class="container-fluid">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <h1 class="mb-0 site-logo"><a href="index.html" class="h2 mb-0">Dogger<span class="text-primary">.</span>
+            <h1 class="mb-0 site-logo"><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="h2 mb-0">PawsNepal<span class="text-primary">.</span>
               </a></h1>
           </div>
 
@@ -79,13 +79,9 @@
                 <li class="has-children">
                   <a class="nav-link">Category</a>
                   <ul class="dropdown">
-
-
                     <li><a href="#faq-section" class="nav-link">FAQ</a></>
                     <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                     <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-
-
 
                     <!-- <li class="has-children">
                       <a href="#">More Links</a>
@@ -100,21 +96,18 @@
 
                 <li><a href="#contact-section" class="nav-link">Contact</a></li>
                 <li><a href="#about-section" class="nav-link">About Us</a></li>
-                <li>
+                <li class="nav-link">
                   <form class="form-inline my-2 my-lg-0">
                     <input class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search">
                     <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Search </button>
                   </form>
                 </li>
-
               </ul>
             </nav>
           </div>
 
-
           <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#"
               class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a></div>
-
         </div>
       </div>
 
@@ -132,7 +125,7 @@
             </div>
           </div>
           <div class="col-md-5 align-self-end text-center text-md-right">
-            <img src="{% static 'images/dogger_img_1.png' %}" alt="Image" class="img-fluid cover-img">
+              <img src="{% static 'images/dogger_img_1.png' %}" alt="Image" class="img-fluid">
           </div>
         </div>
       </div>
@@ -156,7 +149,7 @@
             <div class="row">
               <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
                 <a href="#" class="hover-1">
-                  <img src="{% static 'images/dogger_img_sm_3.jpg' %}" alt="Image" class="img-fluid">
+                  <img src="{{ featured_products.0.image.url }}" alt="Image" class="img-fluid">
                 </a>
               </div>
               <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
@@ -174,7 +167,11 @@
             <div class="row">
               <div class="mb-4 mb-lg-0 col-lg-6" data-aos="fade-left">
                 <a href="#" class="hover-1">
-                  <img src="{% static 'images/dogger_img_sm_1.jpg' %}" alt="Image" class="img-fluid">
+                   {% if featured_products.1.image.url %}
+                  <img src="{{ featured_products.1.image.url }}" alt="Image" class="img-fluid">
+                  {% else %}
+                  <img src="" alt="Image" class="img-fluid">
+                  {% endif %}
                 </a>
               </div>
               <div class="col-lg-5 ml-auto align-self-center" data-aos="fade-right">
@@ -192,7 +189,11 @@
             <div class="row">
               <div class="mb-4 mb-lg-0 col-lg-6 order-lg-2" data-aos="fade-right">
                 <a href="#" class="hover-1">
-                  <img src="{% static 'images/dogger_img_sm_2.jpg' %}" alt="Image" class="img-fluid">
+                  {% if featured_products.2.image.url %}
+                  <img src="{{ featured_products.2.image.url }}" alt="Image" class="img-fluid">
+                  {% else %}
+                  <img src="" alt="Image" class="img-fluid">
+                  {% endif %}
                 </a>
               </div>
               <div class="col-lg-5 mr-auto text-lg-right align-self-center order-lg-1" data-aos="fade-left">
@@ -208,12 +209,12 @@
     </section>
     <!-- home ends here-->
 
-    <section class="site-section " id="shop-section">
+    <section class="site-section bg-primary trainers" id="shop-section">
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center heading-section mb-5">
-            <div class="paws">
-              <span class="icon-shop"></span>
+            <div class="paws white" >
+              <span class="icon-shop" style="color:white"></span>
             </div>
             <h2 class="text-black mb-2">Shop</h2>
             <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
@@ -221,16 +222,20 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
 
+          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
             <div class="block_service">
-              <img src="{% static 'images/dogger_checkup.svg' %}" alt="Image mb-5">
+              {% if featured_products.1.image.url %}
+              <img src="{{ featured_products.2.image.url }}" alt="Image mb-5">
+              {% else %}
+              <img src="" alt="Image mb-5">
+              {% endif %}
               <h3>Dog Checkup</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div>
-
           </div>
+
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="block_service">
               <img src="{% static 'images/dogger_dermatology.svg' %}" alt="Image mb-5">
@@ -239,6 +244,7 @@
                 blind texts. </p>
             </div>
           </div>
+
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="block_service">
               <img src="{% static 'images/dogger_bones.svg' %}" alt="Image mb-5">
@@ -250,15 +256,14 @@
 
 
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
-
             <div class="block_service">
               <img src="{% static 'images/dogger_veterinary.svg' %}" alt="Image mb-5">
               <h3>Dog First Aid</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div>
-
           </div>
+
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="block_service">
               <img src="{% static 'images/dogger_dryer.svg' %}" alt="Image mb-5">
@@ -267,6 +272,7 @@
                 blind texts. </p>
             </div>
           </div>
+
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="block_service">
               <img src="{% static 'images/dogger_veterinarian.svg' %}" alt="Image mb-5">
@@ -486,9 +492,9 @@
         </div>
         <div data-aos="fade-up" data-aos-delay="200">
           <div class="owl-carousel nonloop-block-13">
+
             <div>
               <div class="block-testimony-1 text-center">
-
                 <blockquote class="mb-4">
                   <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild
                     Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven
@@ -496,7 +502,7 @@
                 </blockquote>
 
                 <figure>
-                  <img src="images/person_4.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
+                  <img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
                 </figure>
                 <h3 class="font-size-20 text-black">Ricky Fisher</h3>
               </div>
@@ -504,64 +510,45 @@
 
             <div>
               <div class="block-testimony-1 text-center">
-
-
-
                 <blockquote class="mb-4">
                   <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
                     unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to
                     leave for the far World of Grammar.&rdquo;</p>
                 </blockquote>
-
                 <figure>
-                  <img src="images/person_2.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
+                  <img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
                 </figure>
                 <h3 class="font-size-20 mb-4 text-black">Ken Davis</h3>
-
-
               </div>
             </div>
 
             <div>
               <div class="block-testimony-1 text-center">
-
-
                 <blockquote class="mb-4">
                   <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary
                     regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
                     mouth.&rdquo;</p>
                 </blockquote>
-
                 <figure>
-                  <img src="images/person_1.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
+                  <img src="{% static 'images/person_1.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
                 </figure>
                 <h3 class="font-size-20 text-black">Mellisa Griffin</h3>
-
-
               </div>
             </div>
 
             <div>
               <div class="block-testimony-1 text-center">
-
-
-
                 <blockquote class="mb-4">
                   <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
                     there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
                     Semantics, a large language ocean.&rdquo;</p>
                 </blockquote>
-
                 <figure>
-                  <img src="images/person_3.jpg" alt="Image" class="img-fluid rounded-circle mx-auto">
+                  <img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
                 </figure>
                 <h3 class="font-size-20 mb-4 text-black">Robert Steward</h3>
-
-
               </div>
             </div>
-
-
           </div>
         </div>
       </div>
@@ -646,7 +633,6 @@
             <form action="#" class="p-5 contact-form">
 
               <h2 class="h4 mb-5 heading">Contact Form</h2>
-
               <div class="row form-group">
                 <div class="col-md-6 mb-3 mb-md-0">
                   <label for="fname">First Name</label>
@@ -659,7 +645,6 @@
               </div>
 
               <div class="row form-group">
-
                 <div class="col-md-12">
                   <label for="email">Email</label>
                   <input type="email" id="email" class="form-control">
@@ -667,7 +652,6 @@
               </div>
 
               <div class="row form-group">
-
                 <div class="col-md-12">
                   <label for="subject">Subject</label>
                   <input type="subject" id="subject" class="form-control">
@@ -687,9 +671,8 @@
                   <input type="submit" value="Send Message" class="btn btn-dark btn-md text-white">
                 </div>
               </div>
-
-
             </form>
+
           </div>
           <div class="col-lg-6 bg-secondary">
             <div class="row justify-content-center align-items-center h-100">
