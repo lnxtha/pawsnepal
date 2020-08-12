@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+
 from django.views.generic import DetailView, ListView
 from .models import Blog, Pets
 from .models import ITEM_CATEGORIES, BLOG_CATEGORIES
@@ -23,6 +24,7 @@ class HomeView(View):
 class BlogDetailView(DetailView):
     template_name = 'blogdetail.html'
     model = Blog
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
