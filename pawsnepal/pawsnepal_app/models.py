@@ -74,7 +74,7 @@ class Blog(models.Model):
     image = models.ImageField()            # Mandatory
     created_by = models.CharField(max_length=100, null=True, blank=True)
     category = models.IntegerField(choices=BLOG_CATEGORIES)
-    tags = models.CharField(max_length = 500, null = True, blank = True)
+    tags = models.CharField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return self.title

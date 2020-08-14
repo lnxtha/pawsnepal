@@ -40,6 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pawsnepal_app',
     'django_summernote',
+
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'allauth.socialaccount.providers.facebook',
+    'django.contrib.sites',
 ]
 
 MIDDLEWARE = [
@@ -132,3 +138,14 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+AUTHENTICATION_BACKENDS = (
+
+    'django.contrib.auth.backends.ModelBackend',
+
+    'allauth.account.auth_backends.AuthenticationBackend'
+
+)
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = '/'

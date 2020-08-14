@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('pawsnepal_app.urls')),
     path('admin/', admin.site.urls),
     path('summernote/', include('django_summernote.urls')),
+    path('accounts/',include('allauth.urls'))
 
 ]
 
