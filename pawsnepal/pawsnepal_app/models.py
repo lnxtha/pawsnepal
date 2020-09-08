@@ -65,6 +65,18 @@ class PetItems(models.Model):
         verbose_name_plural = "Pet Items"
 
 
+class Brand(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(null=True, blank=True)
+    banner_image = models.ImageField()  # Mandatory
+    logo = models.ImageField()
+    added_date = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+
 class Blog(models.Model):
     title = models.CharField(max_length=100)
     introduction = models.CharField(max_length=150, null=True)  # Mandatory

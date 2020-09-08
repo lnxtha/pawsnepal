@@ -1861,6 +1861,7 @@ figure figcaption {
       -ms-transform: translate(-50%, -50%);
       transform: translate(-50%, -50%); }
 
+
 .address li {
   color: #a8b1b8;
   margin-bottom: 20px; }
@@ -2045,3 +2046,17 @@ figure figcaption {
     z-index: 4;
     -webkit-box-shadow: 0 4px 40px -4px rgba(0, 0, 0, 0.4);
     box-shadow: 0 4px 40px -4px rgba(0, 0, 0, 0.4); }
+
+
+#slider-range {
+  height: 8px; }
+  #slider-range .ui-slider-handle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    border: none !important;
+    background: white; }
+    #slider-range .ui-slider-handle:focus, #slider-range .ui-slider-handle:active {
+      outline: none; }
+  #slider-range .ui-slider-range {
+    background-color: green; }

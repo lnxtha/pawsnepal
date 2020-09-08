@@ -70,7 +70,7 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="{% url 'pawsnepal_app:dashboard-home' %}"  class="nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="#shop-section" class="nav-link">Shop</a>
+                  <a href="{% url 'pawsnepal_app:dashboard-home' %}/#shop-section" class="nav-link">Shop</a>
                   <ul class="dropdown">
                     <li><a href="#" class="nav-link">Pet</a></li>
                     <li><a href="#" class="nav-link">Pet Items</a></li>
@@ -125,11 +125,16 @@
             <div class="paws">
               <span class="icon-paw"></span>
             </div>
-            <h2 class="text-black mb-2">Welcome to Dogger Pet Care</h2>
-            <p>Far far away, behind the word mountains, far from the countries Vdookalia and Consonantia, there live the
-              blind texts.</p>
+            <h2 class="text-black mb-2">Blog List</h2>
+
           </div>
         </div>
+
+        {% if is_searched_result %}
+      <div class="alert alert-danger" role="alert">
+       No result matched !
+      </div>
+        {% endif %}
 
         {% for obj in object_list %}
         <div class="row hover-1-wrap mb-5 mt-5 mb-lg-0">
