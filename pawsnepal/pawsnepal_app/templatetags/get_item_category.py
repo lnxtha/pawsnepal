@@ -14,7 +14,12 @@ def get_item_category(key):
 
 @register.simple_tag(name='get_blog_category')
 def get_blog_category(key):
-    return blog_categories[int(key)]
+    try:
+        return blog_categories[int(key)]
+    except:
+        return 'NULL'
+
+
 
 
 @register.simple_tag(name='get_blog_count')

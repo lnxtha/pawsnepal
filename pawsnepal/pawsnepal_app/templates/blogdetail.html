@@ -139,7 +139,7 @@
     <section class="site-section">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 blog-content">
+          <div class="col-md-8 blog-content"style="border: 1px black;">
 
             <p class="lead mb-5">{{object.post| safe}}</p>
 <!--            <div class="row mb-5">-->
@@ -168,8 +168,9 @@
               <p>Categories:
 
                 <!--To get Category Name from Category ID-->
-
+                {% if object.category %}
                 <a href="#">{% get_blog_category object.category %}</a>  Tags: <a href="#">{{ object.tags }}</a></p>
+                {% endif %}
 
             </div>
 

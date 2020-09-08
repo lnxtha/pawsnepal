@@ -47,6 +47,7 @@ class BlogDetailView(DetailView):
         related_blog_posts = sorted(post_dictionary.keys(), key=lambda kv: kv[1], reverse=True)
 
         context['related_posts'] = Blog.objects.filter(Q(title__in = related_blog_posts) & ~Q(id= self.kwargs['pk']))[:3]
+
         return context
         # FOR RELATED POSTS START ########
 
@@ -54,12 +55,16 @@ class BlogDetailView(DetailView):
 class BlogListView(ListView):
     template_name = 'bloglist.html'
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['is_searched_result'] = ''
+        return context
+
     def get_queryset(self):
 
         object_list = Blog.objects.all()
 
         if self.request.GET.getlist('category'):
-
             selected_category = get_key_for_blog(self.request.GET.getlist('category')[0])
             object_list = Blog.objects.filter(Q(category=selected_category[0]))
 
@@ -67,6 +72,7 @@ class BlogListView(ListView):
                 pass
             else:
                 print('Query returned No Matches')
+                self.context['is_searched_result'] = 'None'
                 object_list = Blog.objects.all()
 
         elif self.request.GET.getlist('keyword'):
@@ -85,4 +91,13 @@ class BlogListView(ListView):
             object_list = Blog.objects.all()
 
         return object_list
+
+
+class Shop(View):
+    def get(self, request, *args, **kwargs):
+        template_name = 'shop.html'
+        return render(request, template_name, {'':''})
+
+
+
 
