@@ -31,12 +31,12 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" id="home-section">
 
 
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
+<!--  <div id="overlayer"></div>-->
+<!--  <div class="loader">-->
+<!--    <div class="spinner-border text-primary" role="status">-->
+<!--      <span class="sr-only">Loading...</span>-->
+<!--    </div>-->
+<!--  </div>-->
 
 
   <div class="site-wrap">
@@ -80,7 +80,7 @@
                 <li class="has-children">
                   <a class="nav-link">Category</a>
                   <ul class="dropdown">
-                    <li><a href="#faq-section" class="nav-link">FAQ</a></>
+                    <li><a href="#faq-section" class="nav-link">FAQ</a>
                     <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                     <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
 
@@ -122,7 +122,7 @@
           <div class="col-md-7 align-self-center text-center text-md-left">
             <div class="intro-text">
               <h1>Happiness <span class="d-md-block">At Your Doorstep</span></h1>
-              <p class="mb-4">We always try to provide your dog the best<span class="d-block"> services.</p>
+              <p class="mb-4">We always try to provide your dog the best<span class="d-block"> services.</span></p>
             </div>
           </div>
           <div class="col-md-5 align-self-end text-center text-md-right">
@@ -210,7 +210,7 @@
     </section>
     <!-- home ends here-->
 
-    <section class="site-section bg-primary trainers" id="shop-section">
+    <section class="site-section trainers" id="shop-section">
       <div class="container">
         <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center heading-section mb-5">
@@ -225,18 +225,18 @@
         <div class="row">
 
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
-            <div class="block_service">
+            <a href="{% url 'pawsnepal_app:shop' %}"><div class="block_service">
               <img src="{% static 'images/dogger_checkup.svg' %}" alt="Image mb-5">
-              <h3>Dog Breed</h3>
+              <a href="{% url 'pawsnepal_app:shop' %}"><h3>Dog Breed</h3></a>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
-            </div>
+            </div></a>
           </div>
 
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="block_service">
+           <div class="block_service">
               <img src="{% static 'images/dogger_dermatology.svg' %}" alt="Image mb-5">
-              <h3>Pet Essentials</h3>
+             <a href="{% url 'pawsnepal_app:shop' %}"><h3>Pet Essentials</h3></a>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div>
@@ -245,11 +245,12 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="block_service">
               <img src="{% static 'images/dogger_bones.svg' %}" alt="Image mb-5">
-              <h3>Pet Accessories</h3>
+              <a href="{% url 'pawsnepal_app:shop' %}"><h3>Pet Accessories</h3></a>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div>
           </div>
+
         </div>
 
 
@@ -384,7 +385,7 @@
             </div>
           </div>
           {% endfor %}
-          <a href="{% url 'pawsnepal_app:blog-list' %}"><h3 style=" text-align: center;">See All</h3></a>
+          <a href="{% url 'pawsnepal_app:blog-list' %}"><button class="btn btn-primary">See All</button></a>
         </div>
       </div>
     </section>
@@ -407,7 +408,7 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
             <div class="block_service">
               <img src="{% static 'images/dogger_checkup.svg' %}" alt="Image mb-5">
-              <h3>Dog Checkup</h3>
+              <h3>Vet Services</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div>
@@ -416,7 +417,7 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
             <div class="block_service">
               <img src="{% static 'images/dogger_dermatology.svg' %}" alt="Image mb-5">
-              <h3>Dog Dermatology</h3>
+              <h3>Pet Training</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div>
@@ -425,7 +426,7 @@
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
             <div class="block_service">
               <img src="{% static 'images/dogger_bones.svg' %}" alt="Image mb-5">
-              <h3>For Strong Teeth</h3>
+              <h3>Pet Grooming</h3>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div>
@@ -516,80 +517,80 @@
       </div>
     </section>
 
-    <section class="site-section bg-light block-13" id="testimonials-section" data-aos="fade">
-      <div class="container">
+<!--    <section class="site-section bg-light block-13" id="testimonials-section" data-aos="fade">-->
+<!--      <div class="container">-->
 
-        <div class="row justify-content-center" data-aos="fade-up">
-          <div class="col-lg-6 text-center heading-section mb-5">
-            <div class="paws">
-              <span class="icon-paw"></span>
-            </div>
-            <h2 class="text-black mb-2">Happy Customers</h2>
-          </div>
-        </div>
-        <div data-aos="fade-up" data-aos-delay="200">
-          <div class="owl-carousel nonloop-block-13">
+<!--        <div class="row justify-content-center" data-aos="fade-up">-->
+<!--          <div class="col-lg-6 text-center heading-section mb-5">-->
+<!--            <div class="paws">-->
+<!--              <span class="icon-paw"></span>-->
+<!--            </div>-->
+<!--            <h2 class="text-black mb-2">Happy Customers</h2>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--        <div data-aos="fade-up" data-aos-delay="200">-->
+<!--          <div class="owl-carousel nonloop-block-13">-->
 
-            <div>
-              <div class="block-testimony-1 text-center">
-                <blockquote class="mb-4">
-                  <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild
-                    Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven
-                    versalia, put her initial into the belt and made herself on the way.&rdquo;</p>
-                </blockquote>
+<!--            <div>-->
+<!--              <div class="block-testimony-1 text-center">-->
+<!--                <blockquote class="mb-4">-->
+<!--                  <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild-->
+<!--                    Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven-->
+<!--                    versalia, put her initial into the belt and made herself on the way.&rdquo;</p>-->
+<!--                </blockquote>-->
 
-                <figure>
-                  <img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
-                <h3 class="font-size-20 text-black">Ricky Fisher</h3>
-              </div>
-            </div>
+<!--                <figure>-->
+<!--                  <img src="{% static 'images/person_4.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">-->
+<!--                </figure>-->
+<!--                <h3 class="font-size-20 text-black">Ricky Fisher</h3>-->
+<!--              </div>-->
+<!--            </div>-->
 
-            <div>
-              <div class="block-testimony-1 text-center">
-                <blockquote class="mb-4">
-                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
-                    unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to
-                    leave for the far World of Grammar.&rdquo;</p>
-                </blockquote>
-                <figure>
-                  <img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
-                <h3 class="font-size-20 mb-4 text-black">Ken Davis</h3>
-              </div>
-            </div>
+<!--            <div>-->
+<!--              <div class="block-testimony-1 text-center">-->
+<!--                <blockquote class="mb-4">-->
+<!--                  <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost-->
+<!--                    unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to-->
+<!--                    leave for the far World of Grammar.&rdquo;</p>-->
+<!--                </blockquote>-->
+<!--                <figure>-->
+<!--                  <img src="{% static 'images/person_2.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">-->
+<!--                </figure>-->
+<!--                <h3 class="font-size-20 mb-4 text-black">Ken Davis</h3>-->
+<!--              </div>-->
+<!--            </div>-->
 
-            <div>
-              <div class="block-testimony-1 text-center">
-                <blockquote class="mb-4">
-                  <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary
-                    regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
-                    mouth.&rdquo;</p>
-                </blockquote>
-                <figure>
-                  <img src="{% static 'images/person_1.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
-                <h3 class="font-size-20 text-black">Mellisa Griffin</h3>
-              </div>
-            </div>
+<!--            <div>-->
+<!--              <div class="block-testimony-1 text-center">-->
+<!--                <blockquote class="mb-4">-->
+<!--                  <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary-->
+<!--                    regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your-->
+<!--                    mouth.&rdquo;</p>-->
+<!--                </blockquote>-->
+<!--                <figure>-->
+<!--                  <img src="{% static 'images/person_1.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">-->
+<!--                </figure>-->
+<!--                <h3 class="font-size-20 text-black">Mellisa Griffin</h3>-->
+<!--              </div>-->
+<!--            </div>-->
 
-            <div>
-              <div class="block-testimony-1 text-center">
-                <blockquote class="mb-4">
-                  <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,
-                    there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the
-                    Semantics, a large language ocean.&rdquo;</p>
-                </blockquote>
-                <figure>
-                  <img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">
-                </figure>
-                <h3 class="font-size-20 mb-4 text-black">Robert Steward</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+<!--            <div>-->
+<!--              <div class="block-testimony-1 text-center">-->
+<!--                <blockquote class="mb-4">-->
+<!--                  <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia,-->
+<!--                    there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the-->
+<!--                    Semantics, a large language ocean.&rdquo;</p>-->
+<!--                </blockquote>-->
+<!--                <figure>-->
+<!--                  <img src="{% static 'images/person_3.jpg' %}" alt="Image" class="img-fluid rounded-circle mx-auto">-->
+<!--                </figure>-->
+<!--                <h3 class="font-size-20 mb-4 text-black">Robert Steward</h3>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </section>-->
 
     <section class="site-section" id="gallery-section">
       <div class="container-fluid">
@@ -778,10 +779,6 @@
           <div class="col-md-9">
             <div class="row">
               <div class="col-md-5">
-<!--                <h2 class="footer-heading mb-4">Category</h2>-->
-<!--                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque facere laudantium magnam voluptatum-->
-<!--                  autem. Amet aliquid nesciunt veritatis aliquam.</p>-->
-
               <form action="#" class="contact-form" style="margin:0px">
               <h2 class="h4 mb-2 heading">Contact Us</h2>
               <div class="row form-group">
@@ -805,7 +802,7 @@
               <div class="row form-group">
                 <div class="col-md-12">
                   <label for="subject">Subject</label>
-                  <input type="subject" id="subject" class="form-control">
+                  <input type="text" id="subject" class="form-control">
                 </div>
               </div>
 
@@ -887,11 +884,7 @@
   <script src="{% static 'js/jquery.fancybox.min.js' %}"></script>
   <script src="{% static 'js/jquery.sticky.js' %}"></script>
   <script src="{% static 'js/isotope.pkgd.min.js' %}"></script>
-
-
   <script src="{% static 'js/main.js' %}"></script>
-
-{{ user }}
 </body>
 
 </html>

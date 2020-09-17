@@ -33,27 +33,14 @@
   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
-  <div id="overlayer"></div>
-  <div class="loader">
-    <div class="spinner-border text-primary" role="status">
-      <span class="sr-only">Loading...</span>
-    </div>
-  </div>
+<!--  <div id="overlayer"></div>-->
+<!--  <div class="loader">-->
+<!--    <div class="spinner-border text-primary" role="status">-->
+<!--      <span class="sr-only">Loading...</span>-->
+<!--    </div>-->
+<!--  </div>-->
 
-
-  <div class="site-wrap">
-
-    <div class="site-mobile-menu site-navbar-target">
-      <div class="site-mobile-menu-header">
-        <div class="site-mobile-menu-close mt-3">
-          <span class="icon-close2 js-menu-toggle"></span>
-        </div>
-      </div>
-      <div class="site-mobile-menu-body"></div>
-    </div>
-
-
-    <!-- navbar begins here-->
+ <!-- navbar begins here-->
     <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
 
       <div class="container-fluid">
@@ -70,13 +57,15 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="{% url 'pawsnepal_app:dashboard-home' %}"  class="nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="{% url 'pawsnepal_app:dashboard-home' %}/#shop-section" class="nav-link">Shop</a>
+                  <a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Shop</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">Pet</a></li>
-                    <li><a href="#" class="nav-link">Pet Items</a></li>
+                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Dog Breeds</a></li>
+                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Pet Items</a></li>
+                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Pet Accessories</a></li>
+                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Brands</a></li>
                   </ul>
                 </li>
-                <li><a href="#dogopedia" class="nav-link">Dogopedia</a></li>
+                <li><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="nav-link">Dogopedia</a></li>
                 <li> <a href="#services-section" class="nav-link"> Services</a></li>
                 <li class="has-children">
                   <a class="nav-link">Category</a>
@@ -115,6 +104,27 @@
 
     </header>
     <!-- navbar ends here-->
+  <div class="site-wrap">
+
+    <div class="bg-light py-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12 mb-0"><a href="index.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Blog List</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+
+
 
 
 
@@ -157,9 +167,124 @@
         </div>
         {% endfor %}
 
+        <div class="row mt-5" data-aos="fade-up">
+              <div class="col-md-12 text-center">
+                <div class="site-block-27">
+                  <ul>
+                    <li><a href="#">&lt;</a></li>
+                    <li class="active"><span>1</span></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&gt;</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
       </div>
     </section>
     <!-- home ends here-->
+
+     <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-9">
+            <div class="row">
+              <div class="col-md-5">
+              <form action="#" class="contact-form" style="margin:0px">
+              <h2 class="h4 mb-2 heading">Contact Us</h2>
+              <div class="row form-group">
+                <div class="col-md-6 mb-3 mb-md-0">
+                  <label for="fname">First Name</label>
+                  <input type="text" id="fname" class="form-control">
+                </div>
+                <div class="col-md-6">
+                  <label for="lname">Last Name</label>
+                  <input type="text" id="lname" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label for="email">Email</label>
+                  <input type="email" id="email" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label for="subject">Subject</label>
+                  <input type="text" id="subject" class="form-control">
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                  <label for="message">Message</label>
+                  <textarea name="message" id="message" cols="30" rows="7" class="form-control"
+                    placeholder="Write your notes or questions here..."></textarea>
+                </div>
+              </div>
+
+              <div class="row form-group">
+                <div class="col-md-12">
+                 <button class="btn btn-primary text-black" type="button" id="button-send-message" style="background-color:white">Send Message</button>
+                </div>
+              </div>
+            </form>
+              </div>
+              <div class="col-md-3 ml-auto">
+                <h2 class="footer-heading mb-4">Quick Links</h2>
+                <ul class="list-unstyled">
+                  <li><a href="#about-section" class="smoothscroll">About Us</a></li>
+                  <li><a href="#trainers-section" class="smoothscroll">Trainers</a></li>
+                  <li><a href="#services-section" class="smoothscroll">Services</a></li>
+                  <li><a href="#testimonials-section" class="smoothscroll">Testimonials</a></li>
+                  <li><a href="#contact-section" class="smoothscroll">Contact Us</a></li>
+                </ul>
+              </div>
+              <div class="col-md-3">
+                <h2 class="footer-heading mb-4">Follow Us</h2>
+                <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h2 class="footer-heading mb-4">Subscribe Newsletter</h2>
+            <form action="#" method="post" class="footer-subscribe">
+              <div class="input-group mb-3">
+                <input type="text" class="form-control border-secondary text-white bg-transparent"
+                  placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
+                <div class="input-group-append">
+                  <button class="btn btn-primary text-black" type="button" id="button-addon2">Send</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row pt-5 mt-5 text-center">
+          <div class="col-md-12">
+            <div class="border-top pt-5">
+              <p class="copyright"><small>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                  Copyright &copy;
+                  <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
+                  with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://lnx.com"
+                    target="_blank">SPD</a>
+                  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </footer>
+
 
   <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
   <script src="{% static 'js/jquery-ui.js' %}"></script>
