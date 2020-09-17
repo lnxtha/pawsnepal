@@ -52,7 +52,7 @@
                     <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Brands</a></li>
                   </ul>
                 </li>
-                <li><a href="#dogopedia" class="nav-link">Dogopedia</a></li>
+                <li><a href="{% url 'pawsnepal_app:blog-list' %}" class="nav-link">Dogopedia</a></li>
                 <li> <a href="#services-section" class="nav-link"> Services</a></li>
                 <li class="has-children">
                   <a class="nav-link">Category</a>
@@ -94,8 +94,7 @@
 
     <div class="site-section">
       <div class="container">
-
-        <div class="row mb-5">
+        <div class="row">
           <div class="col-md-9 order-2">
 
             <div class="row">
@@ -346,53 +345,53 @@
           </div>
         </div>
 
-<!--        <div class="row">-->
-<!--          <div class="col-md-12">-->
-<!--            <div class="site-section site-blocks-2">-->
-<!--                <div class="row justify-content-center text-center mb-5">-->
-<!--                  <div class="col-md-7 site-section-heading pt-4">-->
-<!--                    <h2>Categories</h2>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                  <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">-->
-<!--                    <a class="block-2-item" href="#">-->
-<!--                      <figure class="image">-->
-<!--                        <img src="{% static 'images/women.jpg' %}" alt="" class="img-fluid">-->
-<!--                      </figure>-->
-<!--                      <div class="text">-->
-<!--                        <span class="text-uppercase">Collections</span>-->
-<!--                        <h3>Women</h3>-->
-<!--                      </div>-->
-<!--                    </a>-->
-<!--                  </div>-->
-<!--                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">-->
-<!--                    <a class="block-2-item" href="#">-->
-<!--                      <figure class="image">-->
-<!--                        <img src="{% static 'images/children.jpg' %}" alt="" class="img-fluid">-->
-<!--                      </figure>-->
-<!--                      <div class="text">-->
-<!--                        <span class="text-uppercase">Collections</span>-->
-<!--                        <h3>Children</h3>-->
-<!--                      </div>-->
-<!--                    </a>-->
-<!--                  </div>-->
-<!--                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">-->
-<!--                    <a class="block-2-item" href="#">-->
-<!--                      <figure class="image">-->
-<!--                        <img src="{% static 'images/men.jpg' %}" alt="" class="img-fluid">-->
-<!--                      </figure>-->
-<!--                      <div class="text">-->
-<!--                        <span class="text-uppercase">Collections</span>-->
-<!--                        <h3>Men</h3>-->
-<!--                      </div>-->
-<!--                    </a>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              -->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
+        <div class="row">
+          <div class="col-md-12">
+            <div class="site-section site-blocks-2">
+                <div class="row justify-content-center text-center mb-5">
+                  <div class="col-md-7 site-section-heading pt-4">
+                    <h2>Services</h2>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
+                    <a class="block-2-item" href="#">
+                      <figure class="image">
+                        <img src="{% static 'images/women.jpg' %}" alt="" class="img-fluid">
+                      </figure>
+                      <div class="text">
+
+                        <h3>Vet Services</h3>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="100">
+                    <a class="block-2-item" href="#">
+                      <figure class="image">
+                        <img src="{% static 'images/children.jpg' %}" alt="" class="img-fluid">
+                      </figure>
+                      <div class="text">
+
+                        <h3>Vet Training</h3>
+                      </div>
+                    </a>
+                  </div>
+                  <div class="col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0" data-aos="fade" data-aos-delay="200">
+                    <a class="block-2-item" href="#">
+                      <figure class="image">
+                        <img src="{% static 'images/men.jpg' %}" alt="" class="img-fluid">
+                      </figure>
+                      <div class="text">
+
+                        <h3>Pet Grooming</h3>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+
+            </div>
+          </div>
+        </div>
         
       </div>
     </div>
