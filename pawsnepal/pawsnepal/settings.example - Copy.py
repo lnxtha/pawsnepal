@@ -40,12 +40,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pawsnepal_app',
     'django_summernote',
-    'imagefit',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.facebook',
     'django.contrib.sites',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -138,6 +138,15 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media_cdn')
 
 X_FRAME_OPTIONS = 'SAMEORIGIN'
 
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar': {'size': (600, 600), 'crop': True},
+        'recent_avatar':{'size': (80,80), 'crop': True},
+        'categorynews_avatar':{'size': (500,250), 'crop': True},
+    },
+}
+
+
 AUTHENTICATION_BACKENDS = (
 
     'django.contrib.auth.backends.ModelBackend',
@@ -149,3 +158,4 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1
 
 LOGIN_REDIRECT_URL = '/'
+
