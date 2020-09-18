@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pawsnepal_app',
     'django_summernote',
-
+    'imagefit',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
