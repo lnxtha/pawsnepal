@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 
 from django.views.generic import DetailView, ListView
-from .models import Blog, Pets
+from .models import Blog, Pets, PetItems, Brand
 from .models import ITEM_CATEGORIES, BLOG_CATEGORIES
 from django.db.models import Q
 
@@ -24,7 +24,6 @@ class HomeView(View):
 class BlogDetailView(DetailView):
     template_name = 'blogdetail.html'
     model = Blog
-
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -94,10 +93,22 @@ class BlogListView(ListView):
         return object_list
 
 
-class Shop(View):
-    def get(self, request, *args, **kwargs):
-        template_name = 'shop.html'
-        return render(request, template_name, {'':''})
+class Shop(ListView):
+    template_name = 'shop.html'
+    model = PetItems
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        pet_list = Pets.objects.all()
+        pet_items_list = PetItems.objects.all()
+        context['is_searched_result'] = ''
+        context['pet_list'] = pet_list
+        context['pet_items_list'] = pet_items_list
+        context['item_categories'] = item_categories.values()
+        context['blog_categories'] = blog_categories.values()
+        context['brand_list'] = Brand.objects.all()
+        return context
+
 
 
 
