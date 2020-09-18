@@ -1,5 +1,6 @@
 {% load static %}
 {% load get_item_category %}
+{% load thumbnail %}
 
 <!doctype html>
 <html lang="en">
@@ -70,8 +71,7 @@
                         <li class="has-children">
                             <a class="nav-link">Category</a>
                             <ul class="dropdown">
-                                <li><a href="#faq-section" class="nav-link">FAQ</a></
-                                >
+                                <li><a href="#faq-section" class="nav-link">FAQ</a></li>
                                 <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                                 <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
 
@@ -148,15 +148,16 @@
             <div class="row hover-1-wrap mb-5 mt-5 mb-lg-0">
 
                 {% for obj in object_list %}
-                <div class="col-md-6 col-lg-6 mb-2">
+                <div class="col-md-6 col-lg-6 mb-4 mt-4">
                     <div class="row mb-4">
                         <div class="mb-4 mb-lg-0 col-lg-6 col-md-6 " data-aos="fade-left">
                             <a href="#" class="hover-1">
-                                <img src="{{ obj.image.url }}" alt="Image" class="img-fluid">
+<!--                                <img src="{{ obj.image.url }}" alt="Image" class="img-fluid">-->
+                                a<img src="{{ obj.image|thumbnail_url:'avatar' }}" alt="Image" class = "img-fluid" />
                             </a>
                         </div>
                         <div class="col-lg-6 col-md-6 mt-2" data-aos="fade-right">
-                            <h2 class="text-black">{{obj.title}}</h2>
+                            <a href="{% url 'pawsnepal_app:blog-detail' obj.id %}" > <h2 class="text-black">{{obj.title}}</h2></a>
                             <p class="mb-4">{{obj.introduction|truncatechars:150}}</p>
                             <p><a href="{% url 'pawsnepal_app:blog-detail' obj.id %}" class="btn btn-primary">Read
                                 More</a></p>
@@ -168,13 +169,14 @@
 
 
             <div class="row mt-5 justify-content-center">
+
                 {% if is_paginated %}
 
                 <nav aria-label="my-nav">
                     <ul class="pagination">
                         {% if page_obj.has_previous %}
                         <li class="page-item"><a class="page-link" href="?page=1">First</a></li>
-                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}"> << </a></li>
                         {% endif %}
                         {% for num in page_obj.paginator.page_range %}
                         {% if page_obj.number == num %}
@@ -184,7 +186,7 @@
                         {% endif %}
                         {% endfor %}
                         {% if page_obj.has_next %}
-                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                        <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}"> >> </a>
                         </li>
                         <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a></li>
                         {% endif %}

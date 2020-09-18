@@ -91,9 +91,21 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
+    def save(self):
+        if not self.image:
+            return
+
+        super(Blog, self).save()
+        image = Image.open(self.image)
+        (width, height) = image.size
+        size = (100, 100)
+        image = image.resize(size, Image.ANTIALIAS)
+        image.save(self.photo.path)
+
     class Meta:
         verbose_name_plural = "Blogs Posts"
         ordering = ['-added_date']
+
 
 
 class ContactUs(models.Model):
