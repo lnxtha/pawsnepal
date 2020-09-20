@@ -66,41 +66,37 @@
 
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
-
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                 <li><a href="{% url 'pawsnepal_app:dashboard-home' %}"  class="nav-link">Home</a></li>
+                <li><a href="{% url 'pawsnepal_app:dashboard-home' %}" class="nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="#shop-section" class="nav-link">Shop</a>
-                  <ul class="dropdown">
-                    <li><a href="#" class="nav-link">Pet</a></li>
-                    <li><a href="#" class="nav-link">Pet Items</a></li>
+                  <a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Visit Store</a>
+
+                    <ul class="dropdown">
+                    {% for obj in item_categories %}
+                    <li><a href="{% url 'pawsnepal_app:shop' %}?category={{obj}}" class="nav-link">{{ obj }}</a></li>
+                    {% endfor %}
+
+                    {% for obj in brand_list %}
+                    <li><a href="{% url 'pawsnepal_app:shop' %}?brand={{obj}}" class="nav-link">{{ obj }}</a></li>
+                    {% endfor %}
                   </ul>
                 </li>
-                <li><a href="#dogopedia" class="nav-link">Dogopedia</a></li>
-                <li> <a href="#services-section" class="nav-link"> Services</a></li>
+                <li><a href="{% url 'pawsnepal_app:blog-list' %}" class="nav-link">Dogopedia</a></li>
+                <li> <a href="{% url 'pawsnepal_app:dashboard-home' %}#services-section" class="nav-link"> Services</a></li>
                 <li class="has-children">
                   <a class="nav-link">Category</a>
                   <ul class="dropdown">
-                    <li><a href="#faq-section" class="nav-link">FAQ</a></>
-                    <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
-                    <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-
-                    <!-- <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>-->
+                    <li><a href="{% url 'pawsnepal_app:dashboard-home' %}#faq-section" class="nav-link">FAQ</a></li>
+                    <li><a href="{% url 'pawsnepal_app:dashboard-home' %}#testimonials-section" class="nav-link">Testimonials</a></li>
+                    <li><a href="{% url 'pawsnepal_app:dashboard-home' %}#gallery-section" class="nav-link">Gallery</a></li>
                   </ul>
                 </li>
 
-                <li><a href="#contact-section" class="nav-link">Contact</a></li>
-                <li><a href="#about-section" class="nav-link">About Us</a></li>
+                <li><a href="{% url 'pawsnepal_app:dashboard-home' %}#about-section" class="nav-link">About Us</a></li>
                 <li class="nav-link">
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search">
+                  <form  action="{% url 'pawsnepal_app:shop' %}" class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search"
+                    id="search_item_keyword" name="search_item_keyword">
                     <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Search </button>
                   </form>
                 </li>

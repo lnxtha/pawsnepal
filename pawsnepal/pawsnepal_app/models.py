@@ -41,22 +41,22 @@ class Brand(models.Model):
         return self.name
 
 
-class Pets(models.Model):
-    name = models.CharField(max_length=100)
-    type = models.CharField(null=True,blank = True,max_length=100)
-    size = models.CharField(null=True, blank = True, max_length=50)
-    price = models.FloatField(null=True, blank=True)
-    description = models.TextField(null=True, blank=True)
-    added_date = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-    image = models.ImageField(null=True, blank=True)
-    featured = models.IntegerField(choices=FEATURED_PRODUCTS, null = True, blank=True, unique=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name_plural = "Pets"
+# class Pets(models.Model):
+#     name = models.CharField(max_length=100)
+#     type = models.CharField(null=True,blank = True,max_length=100)
+#     size = models.CharField(null=True, blank = True, max_length=50)
+#     price = models.FloatField(null=True, blank=True)
+#     description = models.TextField(null=True, blank=True)
+#     added_date = models.DateTimeField(auto_now_add=True)
+#     updated_at = models.DateTimeField(auto_now=True)
+#     image = models.ImageField(null=True, blank=True)
+#     featured = models.IntegerField(choices=FEATURED_PRODUCTS, null = True, blank=True, unique=True)
+#
+#     def __str__(self):
+#         return self.name
+#
+#     class Meta:
+#         verbose_name_plural = "Pets"
 
 
 class PetItems(models.Model):
@@ -65,10 +65,12 @@ class PetItems(models.Model):
     label = models.CharField(max_length=50, null= True, blank = True)
     description = models.TextField(null=True, blank=True)
     price = models.IntegerField(null=True, blank=True)
+    price_range = models.CharField(max_length=20, null=True, blank = True)
     added_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField()         # Mandatory
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name = 'brand_name', blank = True, null = True)
+    featured = models.IntegerField(choices=FEATURED_PRODUCTS, null=True, blank=True, unique=True)
 
     def __str__(self):
         return self.name
