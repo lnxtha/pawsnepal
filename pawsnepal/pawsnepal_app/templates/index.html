@@ -69,10 +69,14 @@
                 <li class="has-children">
                   <a href="#shop-section" class="nav-link">Visit Store</a>
                   <ul class="dropdown">
-                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Dog Breeds</a></li>
-                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Pet Items</a></li>
-                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Pet Accessories</a></li>
-                    <li><a href="{% url 'pawsnepal_app:shop' %}" class="nav-link">Brands</a></li>
+                    {% for obj in item_categories %}
+                    <li><a href="{% url 'pawsnepal_app:shop' %}?category={{obj}}" class="nav-link">{{ obj }}</a></li>
+                    {% endfor %}
+
+                    {% for obj in brand_list %}
+                    <li><a href="{% url 'pawsnepal_app:shop' %}?brand={{obj}}" class="nav-link">{{ obj }}</a></li>
+                    {% endfor %}
+
                   </ul>
                 </li>
                 <li><a href="#dogopedia" class="nav-link">Dogopedia</a></li>
@@ -250,6 +254,8 @@
                 blind texts. </p>
             </div>
           </div>
+
+          <a href="{% url 'pawsnepal_app:shop' %}"><button class="btn btn-primary">See All</button></a>
 
         </div>
 

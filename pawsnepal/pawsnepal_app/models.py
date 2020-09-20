@@ -2,9 +2,9 @@ from django.db import models
 
 # Create your models here.
 ITEM_CATEGORIES = (
-    (1,'Pet Food'),
-    (2,'Pet Accessories'),
-    (3,'Dog Heal')
+    (1,'Dog Breed'),
+    (2,'Pet Essentials'),
+    (3,'Pet Accessories')
 )
 
 BLOG_CATEGORIES = (
@@ -15,20 +15,30 @@ BLOG_CATEGORIES = (
 )
 
 FEATURED_PRODUCTS = (
-    (1,'Crown'),
-    (2,'Diamond'),
-    (3,'Platinum'),
-    (4,'Gold'),
-    (5,'Silver'),
-    (6,'Bronze')
+    (1,'One'),
+    (2,'Two'),
+    (3,'Three'),
+    (4,'Four'),
+    (5,'Five'),
+    (6,'Six')
 )
-
-
 
 
 class Category(models.Model):
     items = models.CharField(max_length=100)
     blogs = models.CharField(max_length=100)
+
+
+class Brand(models.Model):
+    name = models.CharField(max_length=100)
+    description = models.TextField(null=True, blank=True)
+    banner_image = models.ImageField()  # Mandatory
+    logo = models.ImageField()
+    added_date = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.name
 
 
 class Pets(models.Model):
@@ -52,29 +62,19 @@ class Pets(models.Model):
 class PetItems(models.Model):
     name = models.CharField(max_length=100)
     category = models.IntegerField(choices=ITEM_CATEGORIES)
+    label = models.CharField(max_length=50, null= True, blank = True)
     description = models.TextField(null=True, blank=True)
-    price = models.FloatField(null=True, blank=True)
+    price = models.IntegerField(null=True, blank=True)
     added_date = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     image = models.ImageField()         # Mandatory
+    brand = models.ForeignKey(Brand, on_delete=models.CASCADE, related_name = 'brand_name', blank = True, null = True)
 
     def __str__(self):
         return self.name
 
     class Meta:
         verbose_name_plural = "Pet Items"
-
-
-class Brand(models.Model):
-    name = models.CharField(max_length=100)
-    description = models.TextField(null=True, blank=True)
-    banner_image = models.ImageField()  # Mandatory
-    logo = models.ImageField()
-    added_date = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return self.name
 
 
 class Blog(models.Model):
@@ -91,21 +91,9 @@ class Blog(models.Model):
     def __str__(self):
         return self.title
 
-    def save(self):
-        if not self.image:
-            return
-
-        super(Blog, self).save()
-        image = Image.open(self.image)
-        (width, height) = image.size
-        size = (100, 100)
-        image = image.resize(size, Image.ANTIALIAS)
-        image.save(self.photo.path)
-
     class Meta:
         verbose_name_plural = "Blogs Posts"
         ordering = ['-added_date']
-
 
 
 class ContactUs(models.Model):
