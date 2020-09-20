@@ -12,12 +12,20 @@ blog_categories = dict(BLOG_CATEGORIES)
 # Get key from dictionary Blog
 get_key_for_blog = lambda value: [key for key in blog_categories.keys() if blog_categories[key] == value]
 
+# Get key from dictionary Item
+get_key_for_item = lambda value: [key for key in item_categories.keys() if item_categories[key] == value]
+
 # Create your views here.
 
 class HomeView(View):
     def get(self, request, *args, **kwargs):
         template_name = 'index.html'
-        context = {'blogs': Blog.objects.all()[:4],  'blog_categories':blog_categories, 'featured_products': Pets.objects.filter(Q(featured__in = [1,2,3])).order_by('featured') }
+        context = {'blogs': Blog.objects.all()[:4],
+                   'item_categories': item_categories.values(),
+                   'blog_categories':blog_categories,
+                   'brand_list': Brand.objects.all(),
+                   'featured_products': Pets.objects.filter(Q(featured__in = [1,2,3])).order_by('featured') ,}
+
         return render(request, template_name, context)
 
 
@@ -100,14 +108,52 @@ class Shop(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         pet_list = Pets.objects.all()
-        pet_items_list = PetItems.objects.all()
+
         context['is_searched_result'] = ''
         context['pet_list'] = pet_list
-        context['pet_items_list'] = pet_items_list
+
         context['item_categories'] = item_categories.values()
         context['blog_categories'] = blog_categories.values()
         context['brand_list'] = Brand.objects.all()
+
         return context
+
+    def get_queryset(self):
+        object_list = PetItems.objects.all()
+        if self.request.GET.getlist('category'):
+            selected_category = get_key_for_item(self.request.GET.getlist('category')[0])
+            print('Here in Category Section')
+            object_list = PetItems.objects.filter(Q(category=selected_category[0]))
+
+        elif self.request.GET.getlist('brand'):
+            print('Here in Brand section')
+            brand = Brand.objects.get(name = self.request.GET.getlist('brand')[0])
+            PetItems.objects.filter(brand = brand)
+            object_list = PetItems.objects.filter(brand = brand)
+
+        elif self.request.GET.getlist('search_item_keyword'):
+            print('Here in Search Section')
+            keyword = self.request.GET.getlist('search_item_keyword')[0]
+            object_list = PetItems.objects.filter(Q(name__icontains=keyword) | Q(name__icontains=keyword))
+
+        if self.request.GET.getlist('reference'):
+            if self.request.GET.getlist('reference')[-1] == 'name-a-to-z':
+                print('Here in Reference Section')
+                object_list = object_list.order_by('name')
+
+            elif self.request.GET.getlist('reference')[-1] == 'name-z-to-a':
+                print('Here in Reference Section')
+                object_list = object_list.order_by('-name')
+
+            elif self.request.GET.getlist('reference')[-1] == 'price-low-to-high':
+                print('Here in Reference Section')
+                object_list = object_list.order_by('price')
+
+            elif self.request.GET.getlist('reference')[-1] == 'price-high-to-low':
+                print('Here in Reference Section')
+                object_list = object_list.order_by('-price')
+
+        return object_list
 
 
 
