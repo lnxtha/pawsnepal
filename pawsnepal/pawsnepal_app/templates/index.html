@@ -87,23 +87,15 @@
                     <li><a href="#faq-section" class="nav-link">FAQ</a>
                     <li><a href="#testimonials-section" class="nav-link">Testimonials</a></li>
                     <li><a href="#gallery-section" class="nav-link">Gallery</a></li>
-
-                    <!-- <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>-->
                   </ul>
                 </li>
 
 <!--                <li><a href="#contact-section" class="nav-link">Contact</a></li>-->
                 <li><a href="#about-section" class="nav-link">About Us</a></li>
                 <li class="nav-link">
-                  <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search">
+                  <form action="{% url 'pawsnepal_app:shop' %}" class="form-inline my-2 my-lg-0">
+                    <input   class="form-control mr-sm-2  mb-2   px-5" type="search" placeholder="Search  Items Here" aria-label="Search"
+                    id="search_item_keyword" name="search_item_keyword">
                     <button class="btn btn-outline-primary  my-2 my-sm-0" type="submit">Search </button>
                   </form>
                 </li>
@@ -229,63 +221,33 @@
         <div class="row">
 
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">
-            <a href="{% url 'pawsnepal_app:shop' %}"><div class="block_service">
+            <a href="{% url 'pawsnepal_app:shop' %}?category=Dog Breed"><div class="block_service">
               <img src="{% static 'images/dogger_checkup.svg' %}" alt="Image mb-5">
-              <a href="{% url 'pawsnepal_app:shop' %}"><h3>Dog Breed</h3></a>
+              <a href="{% url 'pawsnepal_app:shop' %}?category=Dog Breed"><h3>Dog Breed</h3></a>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
             </div></a>
           </div>
 
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">
-           <div class="block_service">
-              <img src="{% static 'images/dogger_dermatology.svg' %}" alt="Image mb-5">
-             <a href="{% url 'pawsnepal_app:shop' %}"><h3>Pet Essentials</h3></a>
+            <a href="{% url 'pawsnepal_app:shop' %}?category=Pet Essentials"><div class="block_service">
+              <img src="{% static 'images/dogger_dermatology.svg' %}?category=Pet Essentials" alt="Image mb-5">
+             <a href="{% url 'pawsnepal_app:shop' %}?category=Pet Essentials"><h3>Pet Essentials</h3></a>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
-            </div>
+            </div></a>
           </div>
 
           <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="block_service">
+            <a href="{% url 'pawsnepal_app:shop' %}?category=Pet Accessories"><div class="block_service">
               <img src="{% static 'images/dogger_bones.svg' %}" alt="Image mb-5">
-              <a href="{% url 'pawsnepal_app:shop' %}"><h3>Pet Accessories</h3></a>
+              <a href="{% url 'pawsnepal_app:shop' %}?category=Pet Accessories"><h3>Pet Accessories</h3></a>
               <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. </p>
-            </div>
+            </div></a>
           </div>
-
           <a href="{% url 'pawsnepal_app:shop' %}"><button class="btn btn-primary">See All</button></a>
-
         </div>
-
-
-<!--          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="">-->
-<!--            <div class="block_service">-->
-<!--              <img src="{% static 'images/dogger_veterinary.svg' %}" alt="Image mb-5">-->
-<!--              <h3>Dog First Aid</h3>-->
-<!--              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the-->
-<!--                blind texts. </p>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="100">-->
-<!--            <div class="block_service">-->
-<!--              <img src="{% static 'images/dogger_dryer.svg' %}" alt="Image mb-5">-->
-<!--              <h3>Dog Dryer</h3>-->
-<!--              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the-->
-<!--                blind texts. </p>-->
-<!--            </div>-->
-<!--          </div>-->
-
-<!--          <div class="col-md-6 mb-4 col-lg-4" data-aos="fade-up" data-aos-delay="200">-->
-<!--            <div class="block_service">-->
-<!--              <img src="{% static 'images/dogger_veterinarian.svg' %}" alt="Image mb-5">-->
-<!--              <h3>Expert Veterinarian</h3>-->
-<!--              <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the-->
-<!--                blind texts. </p>-->
-<!--            </div>-->
-<!--          </div>-->
 
           <div class="row justify-content-center" data-aos="fade-up">
           <div class="col-lg-6 text-center heading-section mb-5">
@@ -356,6 +318,90 @@
         </div>
       </div>
     </section>
+<!--    -->
+<!--    &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--    &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
+    <div class="site-section block-3 site-blocks-2 bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-md-7 site-section-heading text-center pt-4">
+            <h2>Featured Products</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="nonloop-block-3 owl-carousel">
+              <div class="item">
+                <div class="block-4 text-center">
+                  <figure class="block-4-image">
+                    <img src="{% static 'images/cloth_1.jpg' %}" alt="Image placeholder" class="img-fluid">
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="#">Tank Top</a></h3>
+                    <p class="mb-0">Finding perfect t-shirt</p>
+                    <p class="text-primary font-weight-bold">$50</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="block-4 text-center">
+                  <figure class="block-4-image">
+                    <img src="{% static 'images/shoe_1.jpg' %}" alt="Image placeholder" class="img-fluid">
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="#">Corater</a></h3>
+                    <p class="mb-0">Finding perfect products</p>
+                    <p class="text-primary font-weight-bold">$50</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="block-4 text-center">
+                  <figure class="block-4-image">
+                    <img src="{% static 'images/cloth_2.jpg' %}" alt="Image placeholder" class="img-fluid">
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="#">Polo Shirt</a></h3>
+                    <p class="mb-0">Finding perfect products</p>
+                    <p class="text-primary font-weight-bold">$50</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="block-4 text-center">
+                  <figure class="block-4-image">
+                    <img src="{% static 'images/cloth_3.jpg' %}" alt="Image placeholder" class="img-fluid">
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="#">T-Shirt Mockup</a></h3>
+                    <p class="mb-0">Finding perfect products</p>
+                    <p class="text-primary font-weight-bold">$50</p>
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="block-4 text-center">
+                  <figure class="block-4-image">
+                    <img src="{% static 'images/shoe_1.jpg' %}" alt="Image placeholder" class="img-fluid">
+                  </figure>
+                  <div class="block-4-text p-4">
+                    <h3><a href="#">Corater</a></h3>
+                    <p class="mb-0">Finding perfect products</p>
+                    <p class="text-primary font-weight-bold">$50</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--    -->
+<!--    &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+<!--    &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;-->
+
 
     <!-- Dogopedia-->
     <section class="site-section" id="dogopedia">

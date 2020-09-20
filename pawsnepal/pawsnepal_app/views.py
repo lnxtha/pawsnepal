@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views import View
 
 from django.views.generic import DetailView, ListView
-from .models import Blog, Pets, PetItems, Brand
+from .models import Blog, PetItems, Brand
 from .models import ITEM_CATEGORIES, BLOG_CATEGORIES
 from django.db.models import Q
 
@@ -24,7 +24,8 @@ class HomeView(View):
                    'item_categories': item_categories.values(),
                    'blog_categories':blog_categories,
                    'brand_list': Brand.objects.all(),
-                   'featured_products': Pets.objects.filter(Q(featured__in = [1,2,3])).order_by('featured') ,}
+                   'featured_products': PetItems.objects.filter(Q(featured__in = [1,2,3])).order_by('featured') ,
+                   'pet_items': PetItems.objects.all()[:6]}
 
         return render(request, template_name, context)
 
@@ -37,6 +38,7 @@ class BlogDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['item_categories'] = item_categories.values()
         context['blog_categories'] = blog_categories.values()
+        context['brand_list'] = Brand.objects.all()
 
         # FOR RELATED POSTS START ########
         related_posts = Blog.objects.raw(
@@ -107,10 +109,8 @@ class Shop(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        pet_list = Pets.objects.all()
 
         context['is_searched_result'] = ''
-        context['pet_list'] = pet_list
 
         context['item_categories'] = item_categories.values()
         context['blog_categories'] = blog_categories.values()
